@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,73 +21,79 @@
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     </head>
-    <!-- font-sans antialiased dark:bg-black dark:text-white/50-->
-    <body class="">
-        <header class=" text-xl">
-            <nav class="flex justify-between items-center w-[92%] mx-auto my-2">
-                <div class="flex-shrink-0">
-                    <img class="w-16 cursor-pointer" src="{{asset('/images/pngegg.png')}}" alt="..." a href="welcome">
-                </div>
-                <div class=" nav-links duration-500 md:static absolute md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex items-center px-5">
-                    <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
-                        <li>
-                            <a href="Komandos" class="hover:text-gray-500 ">Komandos</a>
-                        </li>
-                        <li>
-                            <a href="Varzybos" class="hover:text-gray-500">Varžybos</a>
-                        </li>
-                        <li>
-                            <a href="Zaidejas" class="hover:text-gray-500">Žaidejai</a>
-                        </li>
-                        <li>
-                            <a href="kontaktai" class="hover:text-gray-500">Kontaktai</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="flex items-center flex-shrink-0 gap-6">
-                    @if (Route::has('login'))
-                    @auth
+<body>
+    <header class="text-xl">
+        <nav class="flex justify-between items-center w-[92%] mx-auto my-2">
+            <div class="flex-shrink-0">
+                <img class="w-16 cursor-pointer" src="{{asset('/images/pngegg.png')}}" alt="..." a href="welcome">
+            </div>
+            <div class=" nav-links duration-500 md:static absolute md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex items-center px-5">
+                <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
+                    <li>
+                        <a href="Komandos" class="hover:text-gray-500" >Komandos</a>
+                    </li>
+                    <li>
+                        <a href="Varzybos" class="hover:text-gray-500">Varžybos</a>
+                    </li>
+                    <li>
+                        <a href="Zaidejas" class="hover:text-gray-500">Žaidejai</a>
+                    </li>
+                    <li>
+                        <a href="kontaktai" class="hover:text-gray-500 font-bold">Kontaktai</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="flex items-center flex-shrink-0 gap-6">
+                @if (Route::has('login'))
+                @auth
+                    <a
+                        href="{{ url('/dashboard') }}"
+                        class="rounded-md px-3 py-2 hover:text-gray-500 ring-1 ring-transparent transition focus:outline-none focus-visible:ring-[#FF2D20] dark:focus-visible:ring-white"
+                    >
+                        Dashboard
+                    </a>
+                @else
+                    <a
+                        href="{{ route('login') }}"
+                        class="rounded-md  hover:text-gray-500 ring-1 ring-transparent transition focus:outline-none focus-visible:ring-[#FF2D20] dark:focus-visible:ring-white"
+                    >
+                        Log in
+                    </a>
+
+                    @if (Route::has('register'))
                         <a
-                            href="{{ url('/dashboard') }}"
-                            class="rounded-md px-3 py-2 hover:text-gray-500 ring-1 ring-transparent transition focus:outline-none focus-visible:ring-[#FF2D20] dark:focus-visible:ring-white"
-                        >
-                            Dashboard
-                        </a>
-                    @else
-                        <a
-                            href="{{ route('login') }}"
+                            href="{{ route('register') }}"
                             class="rounded-md  hover:text-gray-500 ring-1 ring-transparent transition focus:outline-none focus-visible:ring-[#FF2D20] dark:focus-visible:ring-white"
                         >
-                            Log in
+                            Register
                         </a>
-
-                        @if (Route::has('register'))
-                            <a
-                                href="{{ route('register') }}"
-                                class="rounded-md  hover:text-gray-500 ring-1 ring-transparent transition focus:outline-none focus-visible:ring-[#FF2D20] dark:focus-visible:ring-white"
-                            >
-                                Register
-                            </a>
-                        @endif
-                    @endauth
                     @endif
-                    <ion-icon name="menu" onclick="onToggleMenu(this)" class="text-3xl cursor-pointer md:hidden"></ion-icon>
-                </div>
-            </nav>
-        </header>
-        <script>
-            const navLinks = document.querySelector('.nav-links')
-            function onToggleMenu(e){
-            e.name = e.name === 'menu' ? 'close' : 'menu'
-            if (navLinks.classList.contains('top-[-100%]')) {
-                navLinks.classList.remove('top-[-100%]');
-                navLinks.classList.add('top-[9%]');
-    
-            } else {
-                navLinks.classList.remove('top-[9%]');
-                navLinks.classList.add('top-[-100%]');
-            }
-        }
-        </script>
-    </body>
+                @endauth
+                @endif
+                <ion-icon name="menu" onclick="onToggleMenu(this)" class="text-3xl cursor-pointer md:hidden"></ion-icon>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <h1 class="flex justify-center text-2xl my-20 font-bold">Kontaktas</h1>
+        <div name='contact' class="flex my-20 py-20 bg-gray-100 w-[80%] mx-auto">
+            
+            <div class="flex flex-col justify-center items-center w-[50%] mx-auto my-2">
+                <h1>Pašnekam</h1>
+                <p>Turite klausimų apie varžybas ar kažkokie neaiškumai, nebijokite rašyti mums</p>
+                <p>E.l. paštas</p>
+                <p>Socialiniai tinklai</p>
+            </div>
+            <div class="w-[50%] mx-auto">
+                <form action="" method="GET" class="flex flex-col">
+                    <input type="text" placeholder="Vardas" class="">
+                    <input type="text" placeholder="E.l. paštas" class="">
+                    <input type="text" placeholder="Tema" class="">
+                    <input type="text" placeholder="Klausimas" class="">
+                    <button class="">Išsiųsti</button>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
 </html>
