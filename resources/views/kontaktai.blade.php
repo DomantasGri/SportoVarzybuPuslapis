@@ -20,15 +20,18 @@
         @endif
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
 <body>
     <header class="text-xl">
         <nav class="flex justify-between items-center w-[92%] mx-auto my-2">
             <div class="flex-shrink-0">
-                <img class="w-16 cursor-pointer" src="{{asset('/images/pngegg.png')}}" alt="..." a href="welcome">
+                <a href="{{ route('welcome') }}">
+                    <img class="w-16 cursor-pointer" src="{{ asset('/images/pngegg.png') }}" alt="...">
+                </a>
             </div>
             <div class=" nav-links duration-500 md:static absolute md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex items-center px-5">
-                <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
+                <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8 ">
                     <li>
                         <a href="Komandos" class="hover:text-gray-500" >Komandos</a>
                     </li>
@@ -36,7 +39,7 @@
                         <a href="Varzybos" class="hover:text-gray-500">Varžybos</a>
                     </li>
                     <li>
-                        <a href="Zaidejas" class="hover:text-gray-500">Žaidejai</a>
+                        <a href="Zaidejai" class="hover:text-gray-500">Žaidejai</a>
                     </li>
                     <li>
                         <a href="kontaktai" class="hover:text-gray-500 font-bold">Kontaktai</a>
@@ -75,22 +78,29 @@
         </nav>
     </header>
     <main>
-        <h1 class="flex justify-center text-2xl my-20 font-bold">Kontaktas</h1>
-        <div name='contact' class="flex my-20 py-20 bg-gray-100 w-[80%] mx-auto">
-            
-            <div class="flex flex-col justify-center items-center w-[50%] mx-auto my-2">
-                <h1>Pašnekam</h1>
-                <p>Turite klausimų apie varžybas ar kažkokie neaiškumai, nebijokite rašyti mums</p>
-                <p>E.l. paštas</p>
-                <p>Socialiniai tinklai</p>
+        <h1 class="flex justify-center text-3xl my-20 font-bold">Kontaktas</h1>
+        <div name='contact' class="flex py-5 bg-gray-100 w-[80%] mx-auto "> 
+            <div class="flex flex-col w-[50%]">
+                <p class="text-3xl font-bold pb-24">Turite <span class="text-red-500">klausimų</span> apie varžybas ar kažkokie neaiškumai, nebijokite rašyti mums</p>
+                <div class="flex flex-col pb-24 ml-10 text-xl">
+                    <p><i class="fa-solid fa-envelope"></i> KaunoTinklinis@gmail.com</p>
+                    <p><i class="fa-solid fa-phone"></i>+37061284975</p>            
+                </div>
+                <div class="flex flex-row text-3xl gap-5 ml-10 cursor-pointer">
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                </div>
             </div>
-            <div class="w-[50%] mx-auto">
+            <div class="w-[50%] flex flex-col justify-center text-left mx-12">
                 <form action="" method="GET" class="flex flex-col">
-                    <input type="text" placeholder="Vardas" class="">
-                    <input type="text" placeholder="E.l. paštas" class="">
-                    <input type="text" placeholder="Tema" class="">
-                    <input type="text" placeholder="Klausimas" class="">
-                    <button class="">Išsiųsti</button>
+                    <input type="text" placeholder="Vardas" class="my-2 ">
+                    <input type="text" placeholder="E.l. paštas" class="my-2">
+                    <textarea placeholder="Klausimas" class="my-2 resize-y "></textarea>
+                    <button class="mt-6 px-2 py-1.5 rounded border border-red-500 bg-red-500 text-white hover:bg-red-600 w-[20%]">
+                        <i class="fa-solid fa-paper-plane mr-1.5"></i>Išsiųsti
+                    </button>
+                    
                 </form>
             </div>
         </div>

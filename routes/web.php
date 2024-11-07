@@ -23,3 +23,18 @@ Route::get('/kontaktai', function(){
     return view ('kontaktai');
 });
 
+Route::get('/Komandos', function(){
+    return view ('Komandos');
+});
+
+Route::get('/Zaidejai', function(){
+    return view ('Zaidejai');
+});
+
+Route::get('/Varzybos', function(){
+    return view ('Varzybos');
+});
+
+Route::get('/', function () {
+    return view('welcome');
+})->name('welcome');

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,76 +20,146 @@
         @endif
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
-    <!-- font-sans antialiased dark:bg-black dark:text-white/50-->
-    <body class="">
-        <header class="text-xl">
-            <nav class="flex justify-between items-center w-[92%] mx-auto my-2">
-                <div class="flex-shrink-0">
-                    <a href="{{ route('welcome') }}">
-                        <img class="w-16 cursor-pointer" src="{{ asset('/images/pngegg.png') }}" alt="...">
+<body>
+    <header class="text-xl">
+        <nav class="flex justify-between items-center w-[92%] mx-auto my-2">
+            <div class="flex-shrink-0">
+                <a href="{{ route('welcome') }}">
+                    <img class="w-16 cursor-pointer" src="{{ asset('/images/pngegg.png') }}" alt="...">
+                </a>
+            </div>
+            <div class=" nav-links duration-500 md:static absolute md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex items-center px-5">
+                <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8 ">
+                    <li>
+                        <a href="Komandos" class="hover:text-gray-500" >Komandos</a>
+                    </li>
+                    <li>
+                        <a href="Varzybos" class="hover:text-gray-500 font-bold">Varžybos</a>
+                    </li>
+                    <li>
+                        <a href="Zaidejai" class="hover:text-gray-500">Žaidejai</a>
+                    </li>
+                    <li>
+                        <a href="kontaktai" class="hover:text-gray-500 ">Kontaktai</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="flex items-center flex-shrink-0 gap-6">
+                @if (Route::has('login'))
+                @auth
+                    <a
+                        href="{{ url('/dashboard') }}"
+                        class="rounded-md px-3 py-2 hover:text-gray-500 ring-1 ring-transparent transition focus:outline-none focus-visible:ring-[#FF2D20] dark:focus-visible:ring-white"
+                    >
+                        Dashboard
                     </a>
-                </div>
-                <div class=" nav-links duration-500 md:static absolute md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex items-center px-5">
-                    <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8 ">
-                        <li>
-                            <a href="Komandos" class="hover:text-gray-500" >Komandos</a>
-                        </li>
-                        <li>
-                            <a href="Varzybos" class="hover:text-gray-500">Varžybos</a>
-                        </li>
-                        <li>
-                            <a href="Zaidejai" class="hover:text-gray-500">Žaidejai</a>
-                        </li>
-                        <li>
-                            <a href="kontaktai" class="hover:text-gray-500 ">Kontaktai</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="flex items-center flex-shrink-0 gap-6">
-                    @if (Route::has('login'))
-                    @auth
+                @else
+                    <a
+                        href="{{ route('login') }}"
+                        class="rounded-md  hover:text-gray-500 ring-1 ring-transparent transition focus:outline-none focus-visible:ring-[#FF2D20] dark:focus-visible:ring-white"
+                    >
+                        Log in
+                    </a>
+
+                    @if (Route::has('register'))
                         <a
-                            href="{{ url('/dashboard') }}"
-                            class="rounded-md px-3 py-2 hover:text-gray-500 ring-1 ring-transparent transition focus:outline-none focus-visible:ring-[#FF2D20] dark:focus-visible:ring-white"
-                        >
-                            Dashboard
-                        </a>
-                    @else
-                        <a
-                            href="{{ route('login') }}"
+                            href="{{ route('register') }}"
                             class="rounded-md  hover:text-gray-500 ring-1 ring-transparent transition focus:outline-none focus-visible:ring-[#FF2D20] dark:focus-visible:ring-white"
                         >
-                            Log in
+                            Register
                         </a>
-    
-                        @if (Route::has('register'))
-                            <a
-                                href="{{ route('register') }}"
-                                class="rounded-md  hover:text-gray-500 ring-1 ring-transparent transition focus:outline-none focus-visible:ring-[#FF2D20] dark:focus-visible:ring-white"
-                            >
-                                Register
-                            </a>
-                        @endif
-                    @endauth
                     @endif
-                    <ion-icon name="menu" onclick="onToggleMenu(this)" class="text-3xl cursor-pointer md:hidden"></ion-icon>
-                </div>
-            </nav>
-        </header>
-        <script>
-            const navLinks = document.querySelector('.nav-links')
-            function onToggleMenu(e){
-            e.name = e.name === 'menu' ? 'close' : 'menu'
-            if (navLinks.classList.contains('top-[-100%]')) {
-                navLinks.classList.remove('top-[-100%]');
-                navLinks.classList.add('top-[9%]');
+                @endauth
+                @endif
+                <ion-icon name="menu" onclick="onToggleMenu(this)" class="text-3xl cursor-pointer md:hidden"></ion-icon>
+            </div>
+        </nav>
+    </header>
+    <main class="">
+        <div class="bg-white rounded-lg shadow-lg p-6 w-80">
+            <h2 class="text-2xl font-semibold text-center mb-4">Pasirinkite data</h2>
+            
+            <div class="flex justify-between items-center mb-2">
+                <button id="prevMonth" class="text-gray-500 hover:text-gray-700">&lt; praeitas</button>
+                <span id="monthYear" class="font-semibold text-gray-700"></span>
+                <button id="nextMonth" class="text-gray-500 hover:text-gray-700">kitas &gt;</button>
+            </div>
+            <table class="w-full">
+                <thead>
+                    <tr class="text-gray-500">
+                        <th>Sek</th>
+                        <th>Pir</th>
+                        <th>Ant</th>
+                        <th>Tre</th>
+                        <th>Ket</th>
+                        <th>pen</th>
+                        <th>ses</th>
+                    </tr>
+                </thead>
+                <tbody id="calendarBody" class="text-center text-gray-700"></tbody>
+            </table>
     
-            } else {
-                navLinks.classList.remove('top-[9%]');
-                navLinks.classList.add('top-[-100%]');
+            <p id="selectedDate" class="text-center text-gray-500 mt-4"></p>
+        </div>
+    
+        <script>
+            const calendarBody = document.getElementById('calendarBody');
+            const monthYear = document.getElementById('monthYear');
+            const selectedDateText = document.getElementById('selectedDate');
+            
+            let currentDate = new Date();
+            
+            function renderCalendar() {
+                const year = currentDate.getFullYear();
+                const month = currentDate.getMonth();
+                const firstDay = new Date(year, month, 1).getDay();
+                const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+                monthYear.textContent = `${currentDate.toLocaleString('default', { month: 'long' })} ${year}`;
+                calendarBody.innerHTML = '';
+
+                let date = 1;
+                for (let i = 0; i < 6; i++) {
+                    const row = document.createElement('tr');
+                    for (let j = 0; j < 7; j++) {
+                        const cell = document.createElement('td');
+                        cell.classList.add('p-2', 'border', 'border-gray-200', 'cursor-pointer', 'hover:bg-gray-100');
+
+                        if (i === 0 && j < firstDay) {
+                            cell.innerHTML = '';
+                        } else if (date > daysInMonth) {
+                            break;
+                        } else {
+                            cell.innerHTML = date;
+                            const day = date;
+                            cell.addEventListener('click', () => selectDate(year, month, day));
+                            date++;
+                        }
+                        row.appendChild(cell);
+                    }
+                    calendarBody.appendChild(row);
+                }
             }
-        }
+    
+            function selectDate(year, month, day) {
+                const date = new Date(year, month, day);
+                selectedDateText.textContent = `Pasirinkta data: ${date.toDateString()}`;
+            }
+    
+            document.getElementById('prevMonth').addEventListener('click', () => {
+                currentDate.setMonth(currentDate.getMonth() - 1);
+                renderCalendar();
+            });
+    
+            document.getElementById('nextMonth').addEventListener('click', () => {
+                currentDate.setMonth(currentDate.getMonth() + 1);
+                renderCalendar();
+            });
+    
+            renderCalendar();
         </script>
-    </body>
+    </main>
+</body>
 </html>
