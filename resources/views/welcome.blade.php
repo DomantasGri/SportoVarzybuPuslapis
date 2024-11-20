@@ -77,6 +77,18 @@
                 </div>
             </nav>
         </header>
+
+        <main>
+            <h1 class="display flex justify-center my-8 text-2xl font-bold"> Kauno Tinklinio Lyga </h1>
+            <div class="display flex justify-between bg-gray-600 w-[92%] mx-auto my-2">
+                <div>
+
+                </div>
+                <div>
+                    <img class="w-[100%]" src="{{ asset('/images/TinklinisIndex.jpg') }}" alt="">
+                </div>
+            </div>
+        </main>
         <script>
             const navLinks = document.querySelector('.nav-links')
             function onToggleMenu(e){

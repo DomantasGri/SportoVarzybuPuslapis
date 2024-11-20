@@ -78,88 +78,20 @@
         </nav>
     </header>
     <main class="">
-        <div class="bg-white rounded-lg shadow-lg p-6 w-80">
-            <h2 class="text-2xl font-semibold text-center mb-4">Pasirinkite data</h2>
-            
-            <div class="flex justify-between items-center mb-2">
-                <button id="prevMonth" class="text-gray-500 hover:text-gray-700">&lt; praeitas</button>
-                <span id="monthYear" class="font-semibold text-gray-700"></span>
-                <button id="nextMonth" class="text-gray-500 hover:text-gray-700">kitas &gt;</button>
-            </div>
-            <table class="w-full">
-                <thead>
-                    <tr class="text-gray-500">
-                        <th>Sek</th>
-                        <th>Pir</th>
-                        <th>Ant</th>
-                        <th>Tre</th>
-                        <th>Ket</th>
-                        <th>pen</th>
-                        <th>ses</th>
-                    </tr>
-                </thead>
-                <tbody id="calendarBody" class="text-center text-gray-700"></tbody>
-            </table>
-    
-            <p id="selectedDate" class="text-center text-gray-500 mt-4"></p>
-        </div>
-    
-        <script>
-            const calendarBody = document.getElementById('calendarBody');
-            const monthYear = document.getElementById('monthYear');
-            const selectedDateText = document.getElementById('selectedDate');
-            
-            let currentDate = new Date();
-            
-            function renderCalendar() {
-                const year = currentDate.getFullYear();
-                const month = currentDate.getMonth();
-                const firstDay = new Date(year, month, 1).getDay();
-                const daysInMonth = new Date(year, month + 1, 0).getDate();
-
-                monthYear.textContent = `${currentDate.toLocaleString('default', { month: 'long' })} ${year}`;
-                calendarBody.innerHTML = '';
-
-                let date = 1;
-                for (let i = 0; i < 6; i++) {
-                    const row = document.createElement('tr');
-                    for (let j = 0; j < 7; j++) {
-                        const cell = document.createElement('td');
-                        cell.classList.add('p-2', 'border', 'border-gray-200', 'cursor-pointer', 'hover:bg-gray-100');
-
-                        if (i === 0 && j < firstDay) {
-                            cell.innerHTML = '';
-                        } else if (date > daysInMonth) {
-                            break;
-                        } else {
-                            cell.innerHTML = date;
-                            const day = date;
-                            cell.addEventListener('click', () => selectDate(year, month, day));
-                            date++;
-                        }
-                        row.appendChild(cell);
-                    }
-                    calendarBody.appendChild(row);
-                }
-            }
-    
-            function selectDate(year, month, day) {
-                const date = new Date(year, month, day);
-                selectedDateText.textContent = `Pasirinkta data: ${date.toDateString()}`;
-            }
-    
-            document.getElementById('prevMonth').addEventListener('click', () => {
-                currentDate.setMonth(currentDate.getMonth() - 1);
-                renderCalendar();
-            });
-    
-            document.getElementById('nextMonth').addEventListener('click', () => {
-                currentDate.setMonth(currentDate.getMonth() + 1);
-                renderCalendar();
-            });
-    
-            renderCalendar();
-        </script>
-    </main>
+        <h1 class="text-center text-2xl font-semibold">Varžybos</h1>
+        <table class="flex justify-center items-center flex-col w-full text-center ">
+            <tr>
+                <th>Laikas</th>
+                <th >Komanda1</th>
+                <th>Komanda2</th>
+            </tr>
+            @foreach ($data as $data)
+                <tr>
+                    <td>{{ $data->time }}</td>
+                    <td>{{ $data->team1 }}</td>
+                    <td>{{ $data->team2 }}</td>
+                </tr>
+            @endforeach
+        </table>
 </body>
 </html>

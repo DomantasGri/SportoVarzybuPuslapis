@@ -77,5 +77,7 @@
             </div>
         </nav>
     </header>
+    <h1 class="text-center text-2xl font-semibold mt-10">Komandos</h1>
+    
 </body>
 </html>

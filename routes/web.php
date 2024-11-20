@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Models\Varzybos;
+use App\Http\Controllers\Komandos;
 
 Route::get('/', function () {
     return view('welcome');
@@ -23,18 +25,19 @@ Route::get('/kontaktai', function(){
     return view ('kontaktai');
 });
 
-Route::get('/Komandos', function(){
-    return view ('Komandos');
-});
+Route::get('/Komandos', [Komandos::class, 'show']);
 
 Route::get('/Zaidejai', function(){
     return view ('Zaidejai');
 });
 
 Route::get('/Varzybos', function(){
-    return view ('Varzybos');
+    $data = Varzybos::all();
+    
+    return view ('Varzybos', compact ('data'));
 });
 
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
+
