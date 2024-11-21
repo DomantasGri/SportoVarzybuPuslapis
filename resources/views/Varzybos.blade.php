@@ -78,20 +78,23 @@
         </nav>
     </header>
     <main class="">
-        <h1 class="text-center text-2xl font-semibold">Varžybos</h1>
-        <table class="flex justify-center items-center flex-col w-full text-center ">
-            <tr>
-                <th>Laikas</th>
-                <th >Komanda1</th>
-                <th>Komanda2</th>
-            </tr>
-            @foreach ($data as $data)
-                <tr>
-                    <td>{{ $data->time }}</td>
-                    <td>{{ $data->team1 }}</td>
-                    <td>{{ $data->team2 }}</td>
-                </tr>
+        <div class="container mx-auto mt-10">
+            <h1 class="text-2xl font-bold text-center mb-8">Varžybos</h1>
+    
+            @foreach ($matchesGroupedByDate as $date => $matches)
+                <div class="mb-4  mx-auto w-[50%]">
+                    <h2 class="text-xl font-semibold text-blue-600">{{ $date }}</h2>
+    
+                    <div class="grid gap-4 mt-2">
+                        @foreach ($matches as $match)
+                            <div class="p-4 bg-white rounded shadow-xl">
+                                <p><strong>Komandos:</strong> {{ $match->team1 }} vs {{ $match->team2 }}</p>
+                                <p><strong>Laikas:</strong> {{  \Carbon\Carbon::createFromFormat('H:i:s', $match->time)->format('H:i')  }}</p>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
             @endforeach
-        </table>
+        </div>
 </body>
 </html>

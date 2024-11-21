@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Varzybos;
 use App\Http\Controllers\Komandos;
+use App\Http\Controllers\VarzybosController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -31,11 +32,7 @@ Route::get('/Zaidejai', function(){
     return view ('Zaidejai');
 });
 
-Route::get('/Varzybos', function(){
-    $data = Varzybos::all();
-    
-    return view ('Varzybos', compact ('data'));
-});
+Route::get('/Varzybos', [VarzybosController::class, 'index']);
 
 Route::get('/', function () {
     return view('welcome');
