@@ -80,7 +80,6 @@
     <main class="">
         <div class="container mx-auto mt-10">
             <h1 class="text-2xl font-bold text-center mb-8">Varžybos</h1>
-    
             @foreach ($matchesGroupedByDate as $date => $matches)
                 <div class="mb-4  mx-auto w-[50%]">
                     <h2 class="text-xl font-semibold text-blue-600">{{ $date }}</h2>

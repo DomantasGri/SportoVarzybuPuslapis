@@ -10,10 +10,10 @@ class Varzybos extends Model
 
     protected $fillable = [
         'id',
-        'varzybos_date',
-        'team1',
-        'team2',
-        'time',
+        'Komanda_1',
+        'Komanda_2',
+        'Varzybu_data',
+        'Varzybu_laikas',
     ];
     
 }

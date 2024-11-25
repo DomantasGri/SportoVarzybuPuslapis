@@ -36,13 +36,13 @@
                         <a href="Komandos" class="hover:text-gray-500" >Komandos</a>
                     </li>
                     <li>
-                        <a href="Varzybos" class="hover:text-gray-500">Varžybos</a>
+                        <a href="Varzybos" class="hover:text-gray-500 font-bold">Varžybos</a>
                     </li>
                     <li>
-                        <a href="Zaidejai" class="hover:text-gray-500  font-bold">Žaidejai</a>
+                        <a href="Zaidejai" class="hover:text-gray-500">Žaidejai</a>
                     </li>
                     <li>
-                        <a href="kontaktai" class="hover:text-gray-500">Kontaktai</a>
+                        <a href="kontaktai" class="hover:text-gray-500 ">Kontaktai</a>
                     </li>
                 </ul>
             </div>
@@ -77,26 +77,37 @@
             </div>
         </nav>
     </header>
-    <h1 class="text-2xl font-bold text-center mb-8">žaideju statistikos</h1>
-    <table>
-        <tr>
-            <th>Vardas</th>
-            <th>taskai</th>
-            <th></th>
-        </tr>
-        <tr>
-            @foreach ($topTaskai as $topTaskai)
-                <td>{{ $topTaskai->vardas }}</td> 
-                <td>{{ $topTaskai->taskai }}</td>
-            @endforeach
+    @section('content')
+    <div class="container mx-auto p-4">
+        <div class="bg-white rounded shadow p-6 mb-6">
+            <h1 class="text-2xl font-bold mb-2">{{ $team->komanda }}</h1>
+            <p><strong>Treneris:</strong> {{ $team->treneris }}</p>
+            <!-- Display team stats -->
+            <div class="mt-4">
+                <h2 class="text-xl font-semibold">Team Stats</h2>
+                <ul>
+                    <li><strong>Wins:</strong> {{ $stats->wins }}</li>
+                    <li><strong>Losses:</strong> {{ $stats->losses }}</li>
+                    <li><strong>Draws:</strong> {{ $stats->draws }}</li>
+                    <!-- Add more stats as needed -->
+                </ul>
+            </div>
+        </div>
 
-        </tr>
-    </table>
-    <div class="flex justify-center">
-        @foreach ($topEfektyvumas as $topEfektyvumas)
-            <p>{{ $topEfektyvumas->vardas }}</p>
-            <p>{{ $topEfektyvumas->efektyvumas }}</p>
-        @endforeach
+        <div class="bg-white rounded shadow p-6">
+            <h2 class="text-xl font-semibold mb-4">Players</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                @foreach ($players as $player)
+                    <div class="p-4 border rounded">
+                        <p><strong>Name:</strong> {{ $player->name }}</p>
+                        <p><strong>Position:</strong> {{ $player->position }}</p>
+                        <p><strong>Number:</strong> {{ $player->number }}</p>
+                        
+                    </div>
+                @endforeach
+            </div>
+        </div>
     </div>
+    @endsection
 </body>
 </html>

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use app\Models\Komandos;
 
 class zaidejas extends Model
 {
@@ -21,4 +22,6 @@ class zaidejas extends Model
         'raudonos koronos',
         'efektyvumas',
     ];
+
+    
 }

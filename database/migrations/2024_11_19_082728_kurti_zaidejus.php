@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('vardas');
             $table->string('pavarde');
-            $table->string('komanda');
+            $table->unsignedBigInteger('Komanda_id');
             $table->integer('taskai');
             $table->integer('perdavimai');
             $table->integer('blokai');
@@ -23,8 +23,13 @@ return new class extends Migration
             $table->integer('geltonos kortos');
             $table->integer('Raudonos kortos');
             $table->integer('efektyvumas');
-            $table->foreign('komanda')->references('id')->on('komandos')->onDelete('cascade');
+
+            $table->foreign('Komanda_id')
+            ->references('id')
+            ->on('komandos')
+            ->onDelete('cascade'); 
         });
+
     }
 
     /**

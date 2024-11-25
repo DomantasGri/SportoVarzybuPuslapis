@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Varzybos;
 use App\Http\Controllers\Komandos;
 use App\Http\Controllers\VarzybosController;
+use App\Http\Controllers\TeamController;
+use App\Http\Controllers\Zaidejai;
 
 Route::get('/', function () {
     return view('welcome');
@@ -28,9 +30,7 @@ Route::get('/kontaktai', function(){
 
 Route::get('/Komandos', [Komandos::class, 'show']);
 
-Route::get('/Zaidejai', function(){
-    return view ('Zaidejai');
-});
+Route::get('/Zaidejai', [Zaidejai::class, 'showTaskai']);
 
 Route::get('/Varzybos', [VarzybosController::class, 'index']);
 
@@ -38,3 +38,4 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
+Route::get('/team/{id}', [TeamController::class, 'show'])->name('teamshow');

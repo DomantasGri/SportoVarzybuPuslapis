@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Http\Controllers\Zaidejai;
 use Illuminate\Database\Eloquent\Model;
 
 class Komandos extends Model
@@ -10,13 +11,17 @@ class Komandos extends Model
 
     protected $fillable = [
         'id',
-        'komanda',
+        'komandos_pavadinmas',
         'Laimejimai',
+        'treneris',
         'Pralaimejimai',
         'taskai',
         'Perdavimai',
         'Blokai',
         'Klaidos',
+        'Geltonos_Kortos',
+        'Raudonos_Kortos',
         'Efektyvumas',
     ];
+
 }

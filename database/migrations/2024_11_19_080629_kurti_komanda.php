@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('komandos', function(Blueprint $table){
             $table->id();
-            $table->string('komanda');
+            $table->string('komandos pavadinmas');
             $table->integer('Laimejimai');
+            $table->string('treneris');
             $table->integer('Pralaimejimai');
             $table->integer('taskai');
             $table->integer('Perdavimai');
@@ -23,6 +24,7 @@ return new class extends Migration
             $table->integer('Geltonos Kortos');
             $table->integer('Raudonos Kortos');
             $table->integer('Efektyvumas');
+            $table->timestamps();
         });
     }
 
@@ -31,6 +33,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::drop('komandos');
+        Schema::dropIfExists('zaidejas');
+        Schema::dropIfExists('komandos');
     }
 };
