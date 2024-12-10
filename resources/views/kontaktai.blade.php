@@ -78,10 +78,10 @@
         </nav>
     </header>
     <main>
-        <h1 class="flex justify-center text-3xl my-20 font-bold">Kontaktas</h1>
+        <h1 class="flex justify-center text-3xl my-12 font-bold">Kontaktas</h1>
         <div name='contact' class="flex py-5 bg-gray-100 w-[80%] mx-auto "> 
             <div class="flex flex-col w-[50%]">
-                <p class="text-3xl font-bold pb-24">Turite <span class="text-red-500">klausimų</span> apie varžybas ar kažkokie neaiškumai, nebijokite rašyti mums</p>
+                <p class="text-3xl font-bold pb-24 ml-10">Turite <span class="text-red-500">klausimų</span> apie varžybas ar kažkokie neaiškumai, nebijokite rašyti mums</p>
                 <div class="flex flex-col pb-24 ml-10 text-xl">
                     <p><i class="fa-solid fa-envelope"></i> KaunoTinklinis@gmail.com</p>
                     <p><i class="fa-solid fa-phone"></i>+37061284975</p>            

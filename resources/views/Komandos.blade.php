@@ -78,12 +78,12 @@
         </nav>
     </header>
     <h1 class="text-center text-2xl font-semibold mt-10">Komandos</h1>
-    <div class="mb-4 mx-auto w-1/2 bg-gray-600">
+    <div class="mb-4 mx-auto w-1/2">
         <div class="grid gap-4 mt-2">
             @foreach ($komanda as $team)
-                <a href="" class="block hover:bg-gray-200">
+                <a href="/Komandos/{{ $team->id }}" class="block ">
                     <div class="p-4 bg-white rounded shadow-xl">
-                        <p><strong>Komanda:</strong> {{ $team->komanda }}</p>
+                        <p><strong>Komanda:</strong> {{ $team->komandos_pavadinmas }}</p>
                         <p><strong>Treneris:</strong> {{ $team->treneris }}</p>
                     </div>
                 </a>

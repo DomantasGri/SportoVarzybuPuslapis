@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Http\Controllers\Zaidejai;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\zaidejas;
 
 class Komandos extends Model
 {
@@ -23,5 +24,10 @@ class Komandos extends Model
         'Raudonos_Kortos',
         'Efektyvumas',
     ];
+
+    public function zaidejasDetails()
+    {
+        return $this->belongsTo(zaidejas::class, 'komanda_id', 'id');
+    }
 
 }

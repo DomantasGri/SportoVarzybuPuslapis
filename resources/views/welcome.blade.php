@@ -80,12 +80,12 @@
 
         <main class="w-[92%] mx-auto my-2">
             <h1 class="display flex justify-center my-14 text-2xl font-bold"> Kauno Tinklinio Lyga </h1>
-            <div class="display flex justify-between items-center my-24">
+            <div class="display flex justify-between gap-x-[10px] items-center my-24">
                 <div class="w-[50%] text-xl">
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex iste magni quibusdam ratione perferendis adipisci ducimus totam autem voluptatem cum eveniet nulla quas consequuntur maiores aut, vero ad inventore architecto!</p>
                 </div>
                 <div class="w-[50%]">
-                    <img class="w-[100%]" src="{{ asset('/images/TinklinisIndex.jpg') }}" alt="">
+                    <img class="w-[100%] rounded" src="{{ asset('/images/TinklinisIndex.jpg') }}" alt="">
                 </div>
             </div>
             <div>

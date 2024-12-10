@@ -38,4 +38,4 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/team/{id}', [TeamController::class, 'show'])->name('teamshow');
+Route::get('/Komandos/{id}', [Komandos::class, 'showKomanda']);

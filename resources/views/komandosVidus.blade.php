@@ -23,11 +23,11 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
 <body>
-    <header class="text-xl bg-amber-100 text-blue-900 font-bold">
+    <header class="text-xl">
         <nav class="flex justify-between items-center w-[92%] mx-auto my-2">
             <div class="flex-shrink-0">
                 <a href="{{ route('welcome') }}">
-                    <img class="w-28 cursor-pointer" src="{{ asset('/images/ball.png') }}" alt="...">
+                    <img class="w-16 cursor-pointer" src="{{ asset('/images/pngegg.png') }}" alt="...">
                 </a>
             </div>
             <div class=" nav-links duration-500 md:static absolute md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex items-center px-5">
@@ -36,13 +36,13 @@
                         <a href="Komandos" class="hover:text-gray-500" >Komandos</a>
                     </li>
                     <li>
-                        <a href="Varzybos" class="hover:text-gray-500">Varžybos</a>
+                        <a href="Varzybos" class="hover:text-gray-500 ">Varžybos</a>
                     </li>
                     <li>
-                        <a href="Zaidejai" class="hover:text-gray-500  font-bold">Žaidejai</a>
+                        <a href="Zaidejai" class="hover:text-gray-500">Žaidejai</a>
                     </li>
                     <li>
-                        <a href="kontaktai" class="hover:text-gray-500">Kontaktai</a>
+                        <a href="kontaktai" class="hover:text-gray-500 ">Kontaktai</a>
                     </li>
                 </ul>
             </div>
@@ -77,50 +77,13 @@
             </div>
         </nav>
     </header>
-    <h1 class="text-3xl font-bold text-center mb-8 mt-8">Žaidejų statistikos</h1>
-    <div name='korteles' class="flex justify-center flex-wrap mx-auto w-[80%] space-x-4">
-        <div class="border rounded-lg  shadow-xl w-[27%]">
-            <div class="flex justify-between px-4 py-2 border-b border-gray-300">
-                <p class="font-semibold text-lg text-left">Vardas</p>
-                <p class="font-semibold text-lg text-right">Taskai</p>
-            </div>
-            <div class="divide-y divide-gray-300">
-                @foreach ($topTaskai as $topTaskai)
-                <div class="flex justify-between px-4 py-2">
-                    <p class="text-lg w-2/3 text-left">{{ $topTaskai->pilnas_vardas }}</p>
-                    <p class="text-lg w-1/3 text-right">{{ $topTaskai->taskai }}</p>
-                </div>
-                @endforeach
-            </div>
+    <main>
+        <h1 class="font-bold text-2xl flex justify-center 12mt">{{ $komanda->komandos_pavadinmas }}</h1>
+        <div class="">
+            <p>Zaidejai</p>
+            @foreach ($zaidejai as $zaidejai)
+                <p>{{ $zaidejai->pilnas_vardas }}</p>
+            @endforeach
         </div>
-        <div class="border rounded-lg shadow-xl  w-[27%]">
-            <div class="flex justify-between px-4 py-2 border-b border-gray-300">
-                <p class="font-semibold text-lg w-2/3 text-left">Vardas</p>
-                <p class="font-semibold text-lg w-1/3 text-right">efektyvumas</p>
-            </div>
-            <div class="divide-y divide-gray-300">
-                @foreach ($topEfektyvumas as $topEfektyvumas)
-                <div class="flex justify-between px-4 py-2">
-                    <p class="text-lg text-left">{{ $topEfektyvumas->pilnas_vardas }}</p>
-                    <p class="text-lg text-right">{{ $topEfektyvumas->efektyvumas }}</p>
-                </div>
-                @endforeach
-            </div>
-        </div>
-        <div class="border rounded-lg shadow-xl w-[27%]">
-            <div class="flex justify-between px-4 py-2  border-b border-gray-300">
-                <p class="font-semibold text-lg  text-left">Vardas</p>
-                <p class="font-semibold text-lg  text-right">ACE</p>
-            </div>
-            <div class="divide-y divide-gray-300 ">
-                @foreach ($TopACE as $TopACE)
-                <div class="flex justify-between  px-4 py-2">
-                    <p class="text-lg  text-left">{{ $TopACE->pilnas_vardas }}</p>
-                    <p class="text-lg  text-right">{{ $TopACE->ACE }}</p>
-                </div>
-                @endforeach
-            </div>
-        </div>
-    </div>
 </body>
 </html>
