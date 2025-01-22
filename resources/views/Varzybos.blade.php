@@ -60,17 +60,8 @@
                         href="{{ route('login') }}"
                         class="rounded-md  hover:text-gray-500 ring-1 ring-transparent transition focus:outline-none focus-visible:ring-[#FF2D20] dark:focus-visible:ring-white"
                     >
-                        Log in
+                        prisijungti
                     </a>
-
-                    @if (Route::has('register'))
-                        <a
-                            href="{{ route('register') }}"
-                            class="rounded-md  hover:text-gray-500 ring-1 ring-transparent transition focus:outline-none focus-visible:ring-[#FF2D20] dark:focus-visible:ring-white"
-                        >
-                            Register
-                        </a>
-                    @endif
                 @endauth
                 @endif
                 <ion-icon name="menu" onclick="onToggleMenu(this)" class="text-3xl cursor-pointer md:hidden"></ion-icon>
@@ -80,17 +71,21 @@
     <main class="">
         <div class="container mx-auto mt-10">
             <h1 class="text-2xl font-bold text-center mb-8">Varžybos</h1>
-            @foreach ($matchesGroupedByDate as $date => $matches)
+            @foreach ($matchesGroupedByDate as $Varzybu_data => $matches)
                 <div class="mb-4  mx-auto w-[50%]">
-                    <h2 class="text-xl font-semibold text-blue-600">{{ $date }}</h2>
+                    <h2 class="text-xl font-semibold text-blue-600">{{ $Varzybu_data }}</h2>
     
                     <div class="grid gap-4 mt-2">
                         @foreach ($matches as $match)
-                            <div class="p-4 bg-white rounded shadow-xl">
-                                <p><strong>Komandos:</strong> {{ $match->team1 }} vs {{ $match->team2 }}</p>
-                                <p><strong>Laikas:</strong> {{  \Carbon\Carbon::createFromFormat('H:i:s', $match->time)->format('H:i')  }}</p>
-                            </div>
-                        @endforeach
+                        <div class="p-4 bg-white rounded shadow-xl">
+                            <p><strong>Komandos:</strong> 
+                                {{ $match->komanda1->komandos_pavadinmas }} 
+                                vs 
+                                {{ $match->komanda2->komandos_pavadinmas}}
+                            </p>
+                            <p><strong>Laikas:</strong> {{  \Carbon\Carbon::createFromFormat('H:i:s', $match->Varzybu_laikas)->format('H:i')  }}</p>
+                        </div>
+                    @endforeach
                     </div>
                 </div>
             @endforeach

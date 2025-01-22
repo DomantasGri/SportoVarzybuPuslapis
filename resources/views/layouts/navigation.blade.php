@@ -16,6 +16,21 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('AdminKomandos')" :active="request()->routeIs('AdminKomandos')">
+                        {{ __('Komandos') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('AdminZaidejai')" :active="request()->routeIs('AdminZaidejai')">
+                        {{ __('Žaidėjai') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('AdminVarzybos')" :active="request()->routeIs('AdminVarzybos')">
+                        {{ __('Varžybos') }}
+                    </x-nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->

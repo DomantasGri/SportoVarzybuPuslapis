@@ -3,25 +3,32 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use app\Models\Komandos;
+
 
 class zaidejas extends Model
 {
+
+    public $timestamps = false;
+
     protected $table = 'zaidejas';
 
     protected $fillable = [
-        'id',
         'vardas',
         'pavarde',
-        'komanda',
-        'taskai',
-        'perdavimai',
-        'blokai',
+        'Komanda_id',
+        'taskai' ,
+        'perdavimai' ,
+        'blokai' ,
         'klaidos',
-        'geltonos kortos',
-        'raudonos koronos',
+        'ACE',
+        'GKortos',
+        'RKortos',
         'efektyvumas',
     ];
 
-    
+    public function komanda()
+    {
+        return $this->belongsTo(Komandos::class, 'Komanda_id');
+    }
+
 }

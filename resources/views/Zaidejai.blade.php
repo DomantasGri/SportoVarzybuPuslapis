@@ -23,11 +23,11 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
 <body>
-    <header class="text-xl bg-amber-100 text-blue-900 font-bold">
+    <header class="text-xl">
         <nav class="flex justify-between items-center w-[92%] mx-auto my-2">
             <div class="flex-shrink-0">
                 <a href="{{ route('welcome') }}">
-                    <img class="w-28 cursor-pointer" src="{{ asset('/images/ball.png') }}" alt="...">
+                    <img class="w-16 cursor-pointer" src="{{ asset('/images/pngegg.png') }}" alt="...">
                 </a>
             </div>
             <div class=" nav-links duration-500 md:static absolute md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex items-center px-5">
@@ -39,10 +39,10 @@
                         <a href="Varzybos" class="hover:text-gray-500">Varžybos</a>
                     </li>
                     <li>
-                        <a href="Zaidejai" class="hover:text-gray-500  font-bold">Žaidejai</a>
+                        <a href="Zaidejai" class="hover:text-gray-500">Žaidejai</a>
                     </li>
                     <li>
-                        <a href="kontaktai" class="hover:text-gray-500">Kontaktai</a>
+                        <a href="kontaktai" class="hover:text-gray-500 font-bold">Kontaktai</a>
                     </li>
                 </ul>
             </div>
@@ -60,17 +60,8 @@
                         href="{{ route('login') }}"
                         class="rounded-md  hover:text-gray-500 ring-1 ring-transparent transition focus:outline-none focus-visible:ring-[#FF2D20] dark:focus-visible:ring-white"
                     >
-                        Log in
+                        prisijungti
                     </a>
-
-                    @if (Route::has('register'))
-                        <a
-                            href="{{ route('register') }}"
-                            class="rounded-md  hover:text-gray-500 ring-1 ring-transparent transition focus:outline-none focus-visible:ring-[#FF2D20] dark:focus-visible:ring-white"
-                        >
-                            Register
-                        </a>
-                    @endif
                 @endauth
                 @endif
                 <ion-icon name="menu" onclick="onToggleMenu(this)" class="text-3xl cursor-pointer md:hidden"></ion-icon>
@@ -120,6 +111,14 @@
                 </div>
                 @endforeach
             </div>
+        </div>
+    </div>
+    <div>
+        <h1 class="text-3xl font-bold text-center mb-8 mt-8">Ieškote kokio žaidėjo? Įveskite jo vardą čia</h1>
+        <div class="flex justify-center">
+            <p class="mr-4 text-xl">Įveskite žaidėjo vardą: </p>
+            <input class="h-[100%]  mr-4" placeholder="Vardas" type="text" name="" id="">
+            <button class="text-xl">Ieškoti</button>
         </div>
     </div>
 </body>

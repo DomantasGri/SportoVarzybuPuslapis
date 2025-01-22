@@ -20,8 +20,9 @@ class Komandos extends Model
         'Perdavimai',
         'Blokai',
         'Klaidos',
-        'Geltonos_Kortos',
-        'Raudonos_Kortos',
+        'Ace',
+        'GKortos',
+        'RKortos',
         'Efektyvumas',
     ];
 

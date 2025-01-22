@@ -60,17 +60,9 @@
                         href="{{ route('login') }}"
                         class="rounded-md  hover:text-gray-500 ring-1 ring-transparent transition focus:outline-none focus-visible:ring-[#FF2D20] dark:focus-visible:ring-white"
                     >
-                        Log in
+                        prisijungti
                     </a>
 
-                    @if (Route::has('register'))
-                        <a
-                            href="{{ route('register') }}"
-                            class="rounded-md  hover:text-gray-500 ring-1 ring-transparent transition focus:outline-none focus-visible:ring-[#FF2D20] dark:focus-visible:ring-white"
-                        >
-                            Register
-                        </a>
-                    @endif
                 @endauth
                 @endif
                 <ion-icon name="menu" onclick="onToggleMenu(this)" class="text-3xl cursor-pointer md:hidden"></ion-icon>

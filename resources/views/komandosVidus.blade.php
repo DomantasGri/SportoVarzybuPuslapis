@@ -33,16 +33,16 @@
             <div class=" nav-links duration-500 md:static absolute md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex items-center px-5">
                 <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8 ">
                     <li>
-                        <a href="Komandos" class="hover:text-gray-500" >Komandos</a>
+                        <a href="{{ route('Komandos') }}" class="hover:text-gray-500" >Komandos</a>
                     </li>
                     <li>
-                        <a href="Varzybos" class="hover:text-gray-500 ">Varžybos</a>
+                        <a href="{{ route('Varzybos') }}" class="hover:text-gray-500 ">Varžybos</a>
                     </li>
                     <li>
-                        <a href="Zaidejai" class="hover:text-gray-500">Žaidejai</a>
+                        <a href="{{ route('Zaidejai') }}" class="hover:text-gray-500">Žaidejai</a>
                     </li>
                     <li>
-                        <a href="kontaktai" class="hover:text-gray-500 ">Kontaktai</a>
+                        <a href="{{ route('kontaktai') }}" class="hover:text-gray-500 ">Kontaktai</a>
                     </li>
                 </ul>
             </div>
@@ -60,30 +60,35 @@
                         href="{{ route('login') }}"
                         class="rounded-md  hover:text-gray-500 ring-1 ring-transparent transition focus:outline-none focus-visible:ring-[#FF2D20] dark:focus-visible:ring-white"
                     >
-                        Log in
+                        prisijungti
                     </a>
 
-                    @if (Route::has('register'))
-                        <a
-                            href="{{ route('register') }}"
-                            class="rounded-md  hover:text-gray-500 ring-1 ring-transparent transition focus:outline-none focus-visible:ring-[#FF2D20] dark:focus-visible:ring-white"
-                        >
-                            Register
-                        </a>
-                    @endif
+
                 @endauth
                 @endif
                 <ion-icon name="menu" onclick="onToggleMenu(this)" class="text-3xl cursor-pointer md:hidden"></ion-icon>
             </div>
         </nav>
     </header>
-    <main>
+    <main class="mx-auto w-[50%]">
         <h1 class="font-bold text-2xl flex justify-center 12mt">{{ $komanda->komandos_pavadinmas }}</h1>
-        <div class="">
-            <p>Zaidejai</p>
-            @foreach ($zaidejai as $zaidejai)
-                <p>{{ $zaidejai->pilnas_vardas }}</p>
-            @endforeach
+        <div x-data="{ isOpen: false }" class="flex flex-col items-center w-full border-2 border-black rounded-md">
+            <button 
+                @click="isOpen = !isOpen" 
+                class="w-full text-center px-4 py-2 bg-gray-200 rounded-md hover:bg-gray-300 transition-colors "
+            >
+                Komandos zaidejai
+            </button>
+            
+            <div x-show="isOpen" 
+                 x-transition 
+                 class=" shadow-lg rounded-md p-4 w-full bg-gray-100">
+                 @foreach ($zaidejai as $zaidejai)
+                 <p >{{ $zaidejai->pilnas_vardas }}</p>
+                @endforeach
+            </div>
         </div>
+        
+    </main>
 </body>
 </html>
